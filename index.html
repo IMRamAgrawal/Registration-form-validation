@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header" style="background-color:turquoise; padding-left:30%;">
+            <h2>Registration form</h2>
+        </div>
+        <form id="reset">
+
+            <div class="form-control">
+                <label>Username</label>
+                <input type="text" id="Username" placeholder="Enter your fullname">
+                <img class="img" src="check.png">
+                <img class="img1" src="cross.png">
+                <small></small>
+            </div>
+            <div class="form-control">
+                <label>Email</label>
+                <input type="text" id="email" placeholder="Enter your email">
+                <img class="img" src="check.png">
+                <img class="img1" src="cross.png">
+                <small></small>
+            </div>
+            <div class="form-control">
+                <label>Phone Number</label>
+                <input type="Number" id="number" placeholder="Enter your phone number">
+                <img class="img" src="check.png">
+                <img class="img1" src="cross.png">
+                <small></small>
+            </div>
+            <div class="form-control">
+                <label>Password</label>
+                <input type="password" id="Password" placeholder="Enter your Password">
+                <img class="img" src="check.png">
+                <img class="img1" src="cross.png">
+                <small></small>
+            </div>
+            <div class="form-control">
+                <label>Confirm Password</label>
+                <input type="password" id="Cpassword" placeholder="Enter your Password again">
+                <img class="img" src="check.png">
+                <img class="img1" src="cross.png">
+                <small></small>
+            </div>
+            <button class="button">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    let button = document.getElementsByClassName("button")[0]
+    button.addEventListener("click", (event)=>{
+    event.preventDefault()
+    validate()}
+ )
+    function validate(){
+        
+    let Username = document.getElementById("Username")
+    Username1 = Username.value.trim();
+    let Email = document.getElementById("email")
+    Email1 = Email.value.trim();
+    let PhoneNumber = document.getElementById("number")
+    PhoneNumber1 = PhoneNumber.value.trim();
+    let Password = document.getElementById("Password")
+    Password1 = Password.value.trim();
+    let ConfirmPassword = document.getElementById("Cpassword")
+    ConfirmPassword1 = ConfirmPassword.value.trim();
+
+  
+    if(Username1 ==  ""){
+        const small = document.querySelectorAll("small")[0]
+     small.innerText = "Username cannot be blank"
+     let formcontrol4 = document.querySelectorAll(".form-control")[0]
+     formcontrol4.classList.add("error")
+    }
+    else{
+       let formcontrol4 = document.querySelectorAll(".form-control")[0]
+       formcontrol4.classList.add("success")
+       formcontrol4.classList.remove("error")
+    }
+
+
+    if(Email1 ==  ""){
+        const small = document.querySelectorAll("small")[1]
+     small.innerText = "email cannot be blank"
+     let formcontrol4 = document.querySelectorAll(".form-control")[1]
+     formcontrol4.classList.add("error")
+    }
+    else if((Email1.indexOf("@") == -1) || (Email1.indexOf(".") == -1)){
+        const small = document.querySelectorAll("small")[1]
+         small.innerText = "Not a valid email"
+         let formcontrol4 = document.querySelectorAll(".form-control")[1]
+     formcontrol4.classList.add("error")
+    }
+    else{
+       let formcontrol4 = document.querySelectorAll(".form-control")[1]
+       formcontrol4.classList.add("success")
+       formcontrol4.classList.remove("error")
+    }
+
+
+    if(PhoneNumber1 ==  ""){
+        const small = document.querySelectorAll("small")[2]
+     small.innerText = "phonenumber cannot be blank"
+     let formcontrol4 = document.querySelectorAll(".form-control")[2]
+     formcontrol4.classList.add("error")
+    }
+    else if(PhoneNumber1.length !== 10){
+        const small = document.querySelectorAll("small")[2]
+     small.innerText = "it is not a valid number"
+     let formcontrol4 = document.querySelectorAll(".form-control")[2]
+     formcontrol4.classList.add("error")
+    }
+    else{
+       let formcontrol4 = document.querySelectorAll(".form-control")[2]
+       formcontrol4.classList.add("success")
+       formcontrol4.classList.remove("error")
+    }
+
+
+    if(Password1 ==  ""){
+        const small = document.querySelectorAll("small")[3]
+     small.innerText = "fill your pasword"
+     let formcontrol4 = document.querySelectorAll(".form-control")[3]
+     formcontrol4.classList.add("error")
+    }
+    else if(Password1.length <= 2){
+        const small = document.querySelectorAll("small")[3]
+     small.innerText = "password should contain minimum 3 characters"
+     let formcontrol4 = document.querySelectorAll(".form-control")[3]
+     formcontrol4.classList.add("error")
+    }
+    else{
+       let formcontrol4 = document.querySelectorAll(".form-control")[3]
+       formcontrol4.classList.add("success")
+       formcontrol4.classList.remove("error")
+    }
+
+
+    if(ConfirmPassword1 ==  ""){
+        const small = document.querySelectorAll("small")[4]
+     small.innerText = "fill your password again"
+     let formcontrol4 = document.querySelectorAll(".form-control")[4]
+     formcontrol4.classList.add("error")
+    }
+    else if(ConfirmPassword1 !== Password1 ){
+        const small = document.querySelectorAll("small")[4]
+     small.innerText = "password not match"
+     let formcontrol4 = document.querySelectorAll(".form-control")[4]
+     formcontrol4.classList.add("error")
+    }
+    else{
+       let formcontrol4 = document.querySelectorAll(".form-control")[4]
+       formcontrol4.classList.add("success")
+       formcontrol4.classList.remove("error")
+    }
+check();
+    
+    }
+    function check(){
+        let check = true;{
+    for(let i=0; i<5;i++){
+       
+     if(document.getElementsByClassName("form-control")[i].classList.contains("success") == true){
+         check = true;
+      
+        
+     }
+     else{
+       
+          check = false;
+       break;
+     }
+    }
+    if(check == true){
+        document.getElementById("reset").reset();
+      
+    }
+    else{
+        console.log("error")
+    }}
+}
+
+
+  
+
+</script>   
